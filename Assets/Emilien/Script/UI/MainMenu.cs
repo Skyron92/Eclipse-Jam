@@ -8,8 +8,10 @@ public class MainMenu : UIManager
     public List<GameObject> button = new List<GameObject>();
     public SettingMenu _settingMenu;
     public CreditMenu _creditMenu;
+    public GameMenu _gameMenu;
     public void PlayButton(){
         StartCoroutine(MainAnimClose());
+        StartCoroutine(_gameMenu.GAmeAnimOpen());
     }
 
     public void SettingButton(){
