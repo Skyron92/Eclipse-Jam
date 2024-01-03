@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 4531636769308210769}
   m_Layer: 0
   m_Name: EarthPrefab
-  m_TagString: Untagged
+  m_TagString: Sphere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -450,7 +450,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5332409890891196282}
   - {fileID: 8090494141448995135}
@@ -475,6 +475,7 @@ MonoBehaviour:
   mouseInputActionReference: {fileID: 6946595831616246268, guid: aef80c1ee29d404478e9942e029ca211,
     type: 3}
   rotationSpeed: 35
+  naturalRotationSpeed: 0.5
 --- !u!33 &7220456745867085530
 MeshFilter:
   m_ObjectHideFlags: 0
