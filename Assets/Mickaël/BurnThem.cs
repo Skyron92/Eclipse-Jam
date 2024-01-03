@@ -11,14 +11,17 @@ public class BurnThem : MonoBehaviour
         {
             foreach (CiviliansAI ai in CiviliansAI.m_AIList)
             {
-                float value = transform.position.x * ai.gameObject.transform.position.x + transform.position.y * ai.gameObject.transform.position.y + transform.position.z * ai.gameObject.transform.position.z;
-                if (value > 0)
+                if (!ai.hasSunglasses)
                 {
-                    ai.isBurning = true;
-                }
-                else
-                {
-                    ai.isBurning = false;
+                    float value = transform.position.x * ai.gameObject.transform.position.x + transform.position.y * ai.gameObject.transform.position.y + transform.position.z * ai.gameObject.transform.position.z;
+                    if (value > 0)
+                    {
+                        ai.isBurning = true;
+                    }
+                    else
+                    {
+                        ai.isBurning = false;
+                    }
                 }
             }
             CiviliansAI.FinishThem();
