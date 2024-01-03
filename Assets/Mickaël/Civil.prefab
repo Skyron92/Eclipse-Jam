@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7149509923307128344}
   - component: {fileID: 2372961062453961052}
   - component: {fileID: 3114100690755894188}
+  - component: {fileID: 7934699146347125216}
   m_Layer: 0
   m_Name: Civil
   m_TagString: Untagged
@@ -30,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 8.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -122,3 +123,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaximumWalkingDuration: 10
   MinimumStandingDuration: 3
+--- !u!114 &7934699146347125216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128563451066667533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9dd41809344ec7b7757073f3d71c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxScale: 0.12
