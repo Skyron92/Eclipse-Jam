@@ -393,8 +393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06208601190a0294a9901cfde98e21b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkingDuration: 5
-  StandingDuration: 1
+  MaximumWalkingDuration: 10
+  MinimumStandingDuration: 3
 --- !u!1 &1217161168
 GameObject:
   m_ObjectHideFlags: 0
