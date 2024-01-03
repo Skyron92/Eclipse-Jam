@@ -9843,6 +9843,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaximumWalkingDuration: 10
   MinimumStandingDuration: 3
+  MaxLifePoints: 100
+  BurningSpeed: 50
+  isBurning: 0
+  hasSunglasses: 0
 --- !u!114 &7934699146347125216
 MonoBehaviour:
   m_ObjectHideFlags: 0

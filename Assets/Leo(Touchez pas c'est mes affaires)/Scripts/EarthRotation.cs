@@ -51,7 +51,7 @@ public class EarthRotation : MonoBehaviour
     IEnumerator Rotate() {
         if (JoystickInput != Vector2.zero) { //Rotation à la manette
             Vector3 rotationDirection = new Vector3();
-            rotationDirection = Vector3.right * JoystickInput.y + Vector3.up * JoystickInput.x;
+            rotationDirection = Vector3.right * JoystickInput.y + Vector3.up * -JoystickInput.x;
             rotationDirection.z = 0;
             transform.Rotate(rotationDirection * rotationSpeed * 0.1f, Space.World);
         }
@@ -61,7 +61,7 @@ public class EarthRotation : MonoBehaviour
             float rotationX = offset.y * rotationSpeed * Time.deltaTime;
             float rotationY = -offset.x * rotationSpeed * Time.deltaTime;
             transform.Rotate(Vector3.up, rotationY, Space.World);
-            transform.Rotate(Vector3.forward, rotationX, Space.World);
+            transform.Rotate(Vector3.right, rotationX, Space.World);
             _mouseOrigin = Input.mousePosition;
         }
         yield return new WaitForSeconds(0.1f);
