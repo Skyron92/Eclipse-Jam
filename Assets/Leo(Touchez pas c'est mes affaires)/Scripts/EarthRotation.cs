@@ -12,6 +12,7 @@ public class EarthRotation : MonoBehaviour
     private Vector2 JoystickInput => JoystickInputAction.ReadValue<Vector2>();
     private bool _inputIsPerformed;
     [SerializeField, Range(0, 100)] private float rotationSpeed;
+    [SerializeField, Range(0, 1)] private float naturalRotationSpeed;
     private Vector3 _mouseOrigin;
 
     private void Awake() {
@@ -19,13 +20,17 @@ public class EarthRotation : MonoBehaviour
         if(mouseInputActionReference == null) Debug.LogError("Attach the mouse input action reference !");
         if(rotationSpeed == 0) Debug.LogWarning("Rotation speed is equal to 0 !");
         JoystickInputAction.Enable();
+        JoystickInputAction.started += context => StopCoroutine(NaturalRotation());
         JoystickInputAction.performed += context => _inputIsPerformed = !GameManager.Paused;
         JoystickInputAction.canceled += context => {
             _inputIsPerformed = false;
             StopCoroutine(Rotate());
         };
         MouseInputAction.Enable();
-        MouseInputAction.started += context => _mouseOrigin = Input.mousePosition;
+        MouseInputAction.started += context => {
+            StopCoroutine(NaturalRotation());
+            _mouseOrigin = Input.mousePosition;
+        };
         MouseInputAction.performed += context => _inputIsPerformed = !GameManager.Paused;
         MouseInputAction.canceled += context => {
             _inputIsPerformed = false;
@@ -35,6 +40,7 @@ public class EarthRotation : MonoBehaviour
 
     private void Update() {
         if (_inputIsPerformed) StartCoroutine(Rotate());
+        else StartCoroutine(NaturalRotation());
     }
 
     private void OnDestroy() {
@@ -58,6 +64,11 @@ public class EarthRotation : MonoBehaviour
             transform.Rotate(Vector3.forward, rotationX, Space.World);
             _mouseOrigin = Input.mousePosition;
         }
+        yield return new WaitForSeconds(0.1f);
+    }
+
+    IEnumerator NaturalRotation() {
+        transform.Rotate(Vector3.up, -naturalRotationSpeed, Space.World);
         yield return new WaitForSeconds(0.1f);
     }
 }
