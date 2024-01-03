@@ -13,7 +13,7 @@ public class CharacterSpawnManager : MonoBehaviour{
 
     [SerializeField] private float _spawnTime;
 
-    private float _lastSpawn;
+    private float _spawnTimer;
 
     private void OnEnable(){
         if (Instance == null){
@@ -25,7 +25,12 @@ public class CharacterSpawnManager : MonoBehaviour{
     }
 
     private void Update(){
-        if (CharacterCounter.Count < DifficultyManager.MaxCharacters && Time.time - _lastSpawn >= _spawnTime){
+        if (GameManager.Paused)
+            return;
+
+        _spawnTimer += Time.deltaTime * GameManager.GameSpeed;
+        
+        if (CharacterCounter.Count < DifficultyManager.MaxCharacters && _spawnTimer >= _spawnTime){
             SpawnCharacter();
         }
     }
@@ -47,7 +52,7 @@ public class CharacterSpawnManager : MonoBehaviour{
 
         go.transform.position = new Vector3((float)x, (float)y, (float)z);
         go.transform.up = new Vector3((float) x, (float) y, (float) z);
-        
-        _lastSpawn = Time.time;
+
+        _spawnTimer = 0;
     }
 }
