@@ -19,14 +19,14 @@ public class EarthRotation : MonoBehaviour
         if(mouseInputActionReference == null) Debug.LogError("Attach the mouse input action reference !");
         if(rotationSpeed == 0) Debug.LogWarning("Rotation speed is equal to 0 !");
         JoystickInputAction.Enable();
-        JoystickInputAction.performed += context => _inputIsPerformed = true;
+        JoystickInputAction.performed += context => _inputIsPerformed = !GameManager.Paused;
         JoystickInputAction.canceled += context => {
             _inputIsPerformed = false;
             StopCoroutine(Rotate());
         };
         MouseInputAction.Enable();
-        MouseInputAction.started += context => _mouseOrigin = Input.mousePosition; 
-        MouseInputAction.performed += context => _inputIsPerformed = true;
+        MouseInputAction.started += context => _mouseOrigin = Input.mousePosition;
+        MouseInputAction.performed += context => _inputIsPerformed = !GameManager.Paused;
         MouseInputAction.canceled += context => {
             _inputIsPerformed = false;
             StopCoroutine(Rotate());
