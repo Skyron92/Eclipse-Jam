@@ -5,22 +5,27 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public enum MoonSpeed { veryLow, low, normal, fast, veryFast }
+public enum MoonSpeed { paused, veryLow, low, normal, fast, veryFast }
 public class MoonManager : MonoBehaviour
 {
     public static event Action FlashBang;
+
     [SerializeField] private InputActionReference triggerInputActionReference;
     private InputAction TriggerInputActon => triggerInputActionReference.action;
     private float TriggerInputValue => TriggerInputActon.ReadValue<float>();
+
     public GameObject Moon;
     public Slider _slider;
+
+
     private MoonSpeed _moonSpeed;
+    private MoonSpeed _previousSpeed;
 
     private float reloadFlash = 360;
     private float moonTimeParkour;
     private float speedValue;
 
-    private void Awake() {
+   private void Awake() {
         if(triggerInputActionReference == null) Debug.LogError("Trigger input action reference not assigned !");
         TriggerInputActon.Enable();
         TriggerInputActon.performed += context => SwitchSpeed();
@@ -41,12 +46,12 @@ public class MoonManager : MonoBehaviour
 
     
     void Update(){
-        if (GameManager.Paused == false){
-            moonTimeParkour += speedValue * Time.deltaTime;
-
-            // g�re la rotation de la lune pour faire un tour complet
-            Moon.transform.Rotate(new Vector3(0, 1, 1), speedValue * Time.deltaTime);
+        if (GameManager.Paused){
+            _moonSpeed = MoonSpeed.paused;
         }
+        else _moonSpeed = _previousSpeed;
+
+        moonTimeParkour += speedValue * Time.deltaTime;
 
         // d�finie la valeur actuelle du slider
         _slider.value = moonTimeParkour;
@@ -56,6 +61,10 @@ public class MoonManager : MonoBehaviour
 
         // vitesse de la lune en fonction des enum
         switch (_moonSpeed){
+            case MoonSpeed.paused:
+                speedValue = 0f;
+                break;
+
             case MoonSpeed.veryLow:
                 speedValue = 20f;
                 break;
@@ -78,9 +87,9 @@ public class MoonManager : MonoBehaviour
         }
 
         // verifie si le slide a fait un tour complet
-        if (moonTimeParkour >= reloadFlash)
-        {
+        if (moonTimeParkour >= reloadFlash){
             moonTimeParkour = 0;
+            FlashBang?.Invoke();
         }
     }
 
@@ -107,17 +116,22 @@ public class MoonManager : MonoBehaviour
     // a assigner au boutton  correspondant
     public void SetVeryLowSpeed(){
         _moonSpeed = MoonSpeed.veryLow;
+        _previousSpeed = _moonSpeed;
     }
     public void SetLowSpeed(){
         _moonSpeed = MoonSpeed.low;
+        _previousSpeed = _moonSpeed;
     }
     public void SetNormalSpeed(){
         _moonSpeed = MoonSpeed.normal;
+        _previousSpeed = _moonSpeed;
     }
     public void SetFastSpeed(){
         _moonSpeed = MoonSpeed.fast;
+        _previousSpeed = _moonSpeed;
     }
     public void SetVeryFastSpeed(){
         _moonSpeed = MoonSpeed.veryFast;
+        _previousSpeed = _moonSpeed;
     }
 }
