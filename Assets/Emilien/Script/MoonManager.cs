@@ -14,6 +14,11 @@ public class MoonManager : MonoBehaviour
     private InputAction TriggerInputActon => triggerInputActionReference.action;
     private float TriggerInputValue => TriggerInputActon.ReadValue<float>();
 
+    [SerializeField] private Image fadePicture;//Utilisée pour l'animation d'éclipse sur le slider
+    [SerializeField] private Image fadeSunPicture;//Utilisée pour l'animation d'éclipse sur le slider
+    private Color _blackMoonPictureColor = Color.black;
+    [SerializeField] private Color _whiteSunPictureColor;
+
     public GameObject Moon;
     public Slider _slider;
 
@@ -39,13 +44,14 @@ public class MoonManager : MonoBehaviour
     void Start(){
         // �tat de base de la lune
         _moonSpeed = MoonSpeed.normal;
+        SetNormalSpeed();
 
         // d�finie la valeur max du slider
         _slider.maxValue = reloadFlash;
     }
 
     
-    void Update(){
+    void Update() {
         if (GameManager.Paused){
             _moonSpeed = MoonSpeed.paused;
         }
@@ -91,6 +97,7 @@ public class MoonManager : MonoBehaviour
             moonTimeParkour = 0;
             FlashBang?.Invoke();
         }
+        StartCoroutine(Fade());
     }
 
     void SwitchSpeed() {
@@ -134,4 +141,15 @@ public class MoonManager : MonoBehaviour
         _moonSpeed = MoonSpeed.veryFast;
         _previousSpeed = _moonSpeed;
     }
+
+    IEnumerator Fade() {
+        float sliderPercent = _slider.value <= 180 ? _slider.value * 100 / 180 : (_slider.value - 180) * 100 / 180;
+        _blackMoonPictureColor.a = _slider.value <= 180 ? sliderPercent / 100 : 1 - sliderPercent / 100;
+        float quarterSliderPercent = _slider.value <= 180 ? (_slider.value - 90) * 100 / 90 : (_slider.value - 180) * 100 / 90;
+        _whiteSunPictureColor.a = _slider.value <= 180 ? quarterSliderPercent /100 : 1 - quarterSliderPercent / 100;
+        fadePicture.color = _blackMoonPictureColor;
+        fadeSunPicture.color = _whiteSunPictureColor;
+        yield return new WaitForSeconds(0.1f);
+    }
+    
 }
