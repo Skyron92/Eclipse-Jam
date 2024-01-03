@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4705863871897357549}
   - component: {fileID: 7818716619316174298}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: "Rep\xE8re (\xE0 supprimer plus tard)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 4677886478354287600}
   - component: {fileID: 2796943597163891936}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: "Rep\xE8re (\xE0 supprimer plus tard)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 8991530031461076664}
   - component: {fileID: 1834856110606258664}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: "Rep\xE8re (\xE0 supprimer plus tard)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 8042914945663633016}
   - component: {fileID: 5424011323364259986}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: "Rep\xE8re (\xE0 supprimer plus tard)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
