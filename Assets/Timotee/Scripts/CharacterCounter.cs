@@ -5,6 +5,7 @@ public class CharacterCounter : MonoBehaviour{
     public static int Count = 0;
 
     private float _scale = 0.01f;
+    [SerializeField] private float _maxScale;
     
     private void OnEnable(){
         Count++;
@@ -13,8 +14,8 @@ public class CharacterCounter : MonoBehaviour{
     }
 
     private void Update(){
-        if (_scale < 1f){
-            _scale = Math.Min(_scale + (DifficultyManager.GrowthSpeed * Time.deltaTime), 1f);
+        if (_scale < _maxScale){
+            _scale = Math.Min(_scale + (DifficultyManager.GrowthSpeed * Time.deltaTime), _maxScale);
             transform.localScale = Vector3.one * _scale;
         }
     }
