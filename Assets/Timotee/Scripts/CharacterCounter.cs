@@ -14,10 +14,10 @@ public class CharacterCounter : MonoBehaviour{
     }
 
     private void Update(){
-        if (_scale < _maxScale){
-            _scale = Math.Min(_scale + (DifficultyManager.GrowthSpeed * Time.deltaTime), _maxScale);
-            transform.localScale = Vector3.one * _scale;
-        }
+        if (!(_scale < _maxScale) || GameManager.Paused) return;
+        
+        _scale = Math.Min(_scale + (DifficultyManager.GrowthSpeed * Time.deltaTime * GameManager.GameSpeed), _maxScale);
+        transform.localScale = Vector3.one * _scale;
     }
 
     private void OnDisable(){

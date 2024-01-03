@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour{
     public static bool Paused => Instance._paused; 
     [SerializeField] private bool _paused;
 
-    public float GameSpeed => Instance._gameSpeed;
-    private float _gameSpeed = 1;
+    public static float GameSpeed => Instance._gameSpeed;
+    [Range(0,1)] [SerializeField] private float _gameSpeed = 1;
     
     private void OnEnable(){
         if (Instance == null){
