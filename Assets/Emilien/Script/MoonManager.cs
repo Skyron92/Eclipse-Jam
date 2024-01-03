@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 public enum MoonSpeed { veryLow, low, normal, fast, veryFast }
 public class MoonManager : MonoBehaviour
 {
+    public static event Action FlashBang;
     public GameObject Moon;
     public Slider _slider;
     private MoonSpeed _moonSpeed;
@@ -25,13 +27,15 @@ public class MoonManager : MonoBehaviour
 
     
     void Update(){
-        moonTimeParkour += speedValue * Time.deltaTime;
+        if (GameManager.Paused == false){
+            moonTimeParkour += speedValue * Time.deltaTime;
+
+            // gère la rotation de la lune pour faire un tour complet
+            Moon.transform.Rotate(new Vector3(0, 1, 1), speedValue * Time.deltaTime);
+        }
 
         // définie la valeur actuelle du slider
         _slider.value = moonTimeParkour;
-
-        // gère la rotation de la lune pour faire un tour complet
-        Moon.transform.Rotate(new Vector3(0,1,1),  speedValue * Time.deltaTime);
 
         // vitesse de la lune en fonction des enum
         switch (_moonSpeed){
@@ -62,6 +66,7 @@ public class MoonManager : MonoBehaviour
             moonTimeParkour = 0;
         }
     }
+
     // a assigner au boutton  correspondant
     public void SetVeryLowSpeed(){
         _moonSpeed = MoonSpeed.veryLow;
