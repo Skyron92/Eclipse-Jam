@@ -9,6 +9,8 @@ public class CharacterSpawnManager : MonoBehaviour{
     [SerializeField] private GameObject _characterPrefab;
     [SerializeField] private GameObject _characterParent;
 
+    [SerializeField] private float _planetRadius;
+
     [SerializeField] private float _spawnTime;
 
     private float _lastSpawn;
@@ -31,7 +33,7 @@ public class CharacterSpawnManager : MonoBehaviour{
     private void SpawnCharacter(){
         GameObject go = Instantiate(_characterPrefab, _characterParent.transform);
 
-        float radius = 4.5f;
+        float radius = _planetRadius;
         float polarAngle = Random.Range(0.1f * (float)Math.PI, 0.9f * (float)Math.PI);
         float azimuthalAngle = Random.Range(-0.4f * (float)Math.PI, 0.4f * (float)Math.PI);
 
