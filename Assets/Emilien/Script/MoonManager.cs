@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public enum MoonSpeed { veryLow, low, normal, fast, veryFast }
 public class MoonManager : MonoBehaviour
 {
+    [SerializeField] private InputActionReference triggerInputActionReference;
+    private InputAction TriggerInputActon => triggerInputActionReference.action;
+    private float TriggerInputValue => TriggerInputActon.ReadValue<float>();
     public GameObject Moon;
     public Slider _slider;
     private MoonSpeed _moonSpeed;
@@ -13,13 +15,23 @@ public class MoonManager : MonoBehaviour
     private float reloadFlash = 360;
     private float moonTimeParkour;
     private float speedValue;
-    
-    
+
+    private void Awake() {
+        if(triggerInputActionReference == null) Debug.LogError("Trigger input action reference not assigned !");
+        TriggerInputActon.Enable();
+        TriggerInputActon.performed += context => SwitchSpeed();
+        TriggerInputActon.canceled += context => SetNormalSpeed();
+    }
+
+    private void OnDestroy() {
+        TriggerInputActon.Disable();
+    }
+
     void Start(){
-        // état de base de la lune
+        // ï¿½tat de base de la lune
         _moonSpeed = MoonSpeed.normal;
 
-        // définie la valeur max du slider
+        // dï¿½finie la valeur max du slider
         _slider.maxValue = reloadFlash;
     }
 
@@ -27,11 +39,11 @@ public class MoonManager : MonoBehaviour
     void Update(){
         moonTimeParkour += speedValue * Time.deltaTime;
 
-        // définie la valeur actuelle du slider
+        // dï¿½finie la valeur actuelle du slider
         _slider.value = moonTimeParkour;
 
-        // gère la rotation de la lune pour faire un tour complet
-        Moon.transform.Rotate(new Vector3(0,1,1),  speedValue * Time.deltaTime);
+        // gï¿½re la rotation de la lune pour faire un tour complet
+        Moon.transform.Rotate(new Vector3(0,0,1),  speedValue * Time.deltaTime);
 
         // vitesse de la lune en fonction des enum
         switch (_moonSpeed){
@@ -62,6 +74,27 @@ public class MoonManager : MonoBehaviour
             moonTimeParkour = 0;
         }
     }
+
+    void SwitchSpeed() {
+        switch (TriggerInputValue) {
+            case < -0.5f :
+              SetVeryLowSpeed();
+                break;
+            case < 0 when TriggerInputValue >= -0.5f :
+                SetLowSpeed();
+                break;
+            case 0 :
+                SetNormalSpeed();
+                break;
+            case > 0 when TriggerInputValue <= 0.5f :
+                SetFastSpeed();
+                break;
+            case > 0.5f :
+                SetVeryFastSpeed();
+                break;
+        }
+    }
+    
     // a assigner au boutton  correspondant
     public void SetVeryLowSpeed(){
         _moonSpeed = MoonSpeed.veryLow;

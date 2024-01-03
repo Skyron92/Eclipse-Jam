@@ -1556,6 +1556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acdc7a71596627438f20a51bfd4c8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerInputActionReference: {fileID: -1859627540114133926, guid: aef80c1ee29d404478e9942e029ca211,
+    type: 3}
   Moon: {fileID: 0}
   _slider: {fileID: 5611243629172378365}
 --- !u!1 &7840486141632428306

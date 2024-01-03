@@ -51,8 +51,8 @@ public class EarthRotation : MonoBehaviour
     IEnumerator Rotate() {
         if (JoystickInput != Vector2.zero) { //Rotation à la manette
             Vector3 rotationDirection = new Vector3();
-            rotationDirection = Vector3.forward * JoystickInput.y + Vector3.up * JoystickInput.x;
-            rotationDirection.x = 0;
+            rotationDirection = Vector3.right * JoystickInput.y + Vector3.up * JoystickInput.x;
+            rotationDirection.z = 0;
             transform.Rotate(rotationDirection * rotationSpeed * 0.1f, Space.World);
         }
         else { // Rotation à la souris
