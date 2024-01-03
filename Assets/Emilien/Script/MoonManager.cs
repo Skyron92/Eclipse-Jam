@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -5,6 +8,7 @@ using UnityEngine.UI;
 public enum MoonSpeed { veryLow, low, normal, fast, veryFast }
 public class MoonManager : MonoBehaviour
 {
+    public static event Action FlashBang;
     [SerializeField] private InputActionReference triggerInputActionReference;
     private InputAction TriggerInputActon => triggerInputActionReference.action;
     private float TriggerInputValue => TriggerInputActon.ReadValue<float>();
@@ -37,7 +41,12 @@ public class MoonManager : MonoBehaviour
 
     
     void Update(){
-        moonTimeParkour += speedValue * Time.deltaTime;
+        if (GameManager.Paused == false){
+            moonTimeParkour += speedValue * Time.deltaTime;
+
+            // g�re la rotation de la lune pour faire un tour complet
+            Moon.transform.Rotate(new Vector3(0, 1, 1), speedValue * Time.deltaTime);
+        }
 
         // d�finie la valeur actuelle du slider
         _slider.value = moonTimeParkour;
