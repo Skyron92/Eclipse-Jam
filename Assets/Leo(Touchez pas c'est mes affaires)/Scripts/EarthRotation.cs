@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class EarthRotation : MonoBehaviour
@@ -49,6 +50,7 @@ public class EarthRotation : MonoBehaviour
             transform.Rotate(rotationDirection * rotationSpeed * 0.1f, Space.World);
         }
         else { // Rotation à la souris
+            if (EventSystem.current.IsPointerOverGameObject()) yield break;
             Vector3 offset = Input.mousePosition - _mouseOrigin;
             float rotationX = offset.y * rotationSpeed * Time.deltaTime;
             float rotationY = -offset.x * rotationSpeed * Time.deltaTime;
