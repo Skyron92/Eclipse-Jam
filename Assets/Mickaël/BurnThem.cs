@@ -14,7 +14,7 @@ public class BurnThem : MonoBehaviour
                 if (!ai.hasSunglasses)
                 {
                     float value = transform.position.x * ai.gameObject.transform.position.x + transform.position.y * ai.gameObject.transform.position.y + transform.position.z * ai.gameObject.transform.position.z;
-                    if (value > 0)
+                    if (value > 0 && MoonManager.isFlashing)
                     {
                         ai.isBurning = true;
                     }
