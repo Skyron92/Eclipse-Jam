@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class MoonManager : MonoBehaviour
     public static event Action FlashBang;
     public static bool isFlashing = false;
 
+    [SerializeField] private Transform _postProcess;
+    
     [SerializeField] private InputActionReference triggerInputActionReference;
     private InputAction TriggerInputActon => triggerInputActionReference.action;
     private float TriggerInputValue => TriggerInputActon.ReadValue<float>();
@@ -62,7 +65,11 @@ public class MoonManager : MonoBehaviour
 
         // d�finie la valeur actuelle du slider
         _slider.value = moonTimeParkour;
-
+        Vector3 position = _postProcess.position;
+        float value = _slider.value / 360f;
+        value = (float)Math.Sin(value * (float) Math.PI);
+        position.y = Mathf.Lerp(-18, 2, value);
+        _postProcess.position = position;
         // g�re la rotation de la lune pour faire un tour complet
         Moon.transform.Rotate(new Vector3(0,0,1),  speedValue * Time.deltaTime);
 
@@ -97,11 +104,11 @@ public class MoonManager : MonoBehaviour
         if (moonTimeParkour >= reloadFlash){
             moonTimeParkour = 0;
         }
-        if (moonTimeParkour >= reloadFlash/2){
+        if (value >= 0.9){
             FlashBang?.Invoke();
             isFlashing = true;
         }
-        if (moonTimeParkour < 190) isFlashing = false;
+        else isFlashing = false;
         StartCoroutine(Fade());
     }
 
