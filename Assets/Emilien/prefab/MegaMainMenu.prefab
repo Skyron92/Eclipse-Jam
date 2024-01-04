@@ -592,10 +592,10 @@ RectTransform:
   - {fileID: 2408699034405993699}
   m_Father: {fileID: 8322593690725291566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.5, y: 0.5}
-  m_SizeDelta: {x: 1, y: -1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 2}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7238763837788505656
 CanvasRenderer:
@@ -649,8 +649,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResolutionWidth: 1920
   ResolutionHeight: 1080
+  camera: {fileID: 0}
   _mainMenu: {fileID: 5864677140697682543}
-  creditPanel: {fileID: 625990790903465256}
+  creditAnimation: {fileID: 0}
+  panelRectTransform: {fileID: 2021537559189377504}
 --- !u!1 &642157477922297472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,10 +1792,10 @@ RectTransform:
   - {fileID: 9128438465420037542}
   m_Father: {fileID: 8322593690725291566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.364, y: 0.05}
-  m_AnchorMax: {x: 0.625, y: 0.95100003}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 0, y: 2}
+  m_AnchorMin: {x: 1, y: 0.05}
+  m_AnchorMax: {x: 1.24, y: 0.95100003}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5898456804906351136
 CanvasRenderer:
@@ -1847,8 +1849,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResolutionWidth: 1920
   ResolutionHeight: 1080
+  camera: {fileID: 0}
   _mainMenu: {fileID: 5864677140697682543}
-  settingPanel: {fileID: 2473843362504430478}
+  settingAnimation: {fileID: 0}
+  panelRectTransform: {fileID: 3741504323332389193}
 --- !u!1 &2499149682779090443
 GameObject:
   m_ObjectHideFlags: 0
@@ -3705,6 +3709,7 @@ GameObject:
   - component: {fileID: 4989790497993725991}
   - component: {fileID: 2928768184216926571}
   - component: {fileID: 5681022908375199201}
+  - component: {fileID: 4777225519144046931}
   m_Layer: 5
   m_Name: MainButton
   m_TagString: Untagged
@@ -3799,6 +3804,31 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &4777225519144046931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945105179582691298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21044b4324388f4428c601f57aa2bc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResolutionWidth: 1920
+  ResolutionHeight: 1080
+  camera: {fileID: 0}
+  button:
+  - {fileID: 6823904713109895154}
+  - {fileID: 2631556828533642576}
+  - {fileID: 7478696179700707778}
+  - {fileID: 5014793590144427759}
+  _settingMenu: {fileID: 9081007275059192154}
+  _creditMenu: {fileID: 910859817374217095}
+  _gameMenu: {fileID: 3947748453184156580}
+  dropdown: {fileID: 6416469344593654509}
+  scaler: {fileID: 2349160683392413930}
 --- !u!1 &3989772874852755747
 GameObject:
   m_ObjectHideFlags: 0
@@ -4176,8 +4206,8 @@ RectTransform:
   - {fileID: 8759906941646075910}
   m_Father: {fileID: 8322593690725291566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8, y: 0.02}
-  m_AnchorMax: {x: 0.98, y: 0.98}
+  m_AnchorMin: {x: 0.8, y: -0.96}
+  m_AnchorMax: {x: 0.98, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4233,8 +4263,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResolutionWidth: 1920
   ResolutionHeight: 1080
+  camera: {fileID: 0}
   _mainMenu: {fileID: 5864677140697682543}
-  gamePanel: {fileID: 4693874083605079460}
+  gameAnimation: {fileID: 0}
+  panelRectTransform: {fileID: 5780914481746423701}
 --- !u!1 &4704152035633959134
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,6 +4637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResolutionWidth: 1920
   ResolutionHeight: 1080
+  camera: {fileID: 0}
   button:
   - {fileID: 6823904713109895154}
   - {fileID: 2631556828533642576}
@@ -4613,6 +4646,8 @@ MonoBehaviour:
   _settingMenu: {fileID: 9081007275059192154}
   _creditMenu: {fileID: 910859817374217095}
   _gameMenu: {fileID: 3947748453184156580}
+  dropdown: {fileID: 6416469344593654509}
+  scaler: {fileID: 2349160683392413930}
 --- !u!1 &5014793590144427759
 GameObject:
   m_ObjectHideFlags: 0
@@ -7268,7 +7303,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MoonManager, Assembly-CSharp
-        m_MethodName: SetVeryFastSpeed
+        m_MethodName: SetFastSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

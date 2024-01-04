@@ -6,16 +6,15 @@ using DG.Tweening;
 public class SettingMenu : UIManager
 {
     public MainMenu _mainMenu;
-    public GameObject settingPanel;
     public Animator settingAnimation;
 
-    private void Awake(){
-        settingPanel.transform.DOMoveX(ResolutionWidth + (ResolutionWidth / 2), 0);
-    }
+    [SerializeField] private RectTransform panelRectTransform;
+    private Vector2 _maxPosPanel, _minPosPanel, _targetPosX;
 
-    private void Update(){
-        ResolutionHeight = _mainMenu.dropdown.resolutions[_mainMenu.dropdown.dropdownMenu.value].height;
-        ResolutionWidth = _mainMenu.dropdown.resolutions[_mainMenu.dropdown.dropdownMenu.value].width;
+    private void Awake() {
+        _maxPosPanel = panelRectTransform.anchorMax;
+        _minPosPanel = panelRectTransform.anchorMin;
+        _targetPosX = new Vector2(0.365f, 0.625f);
     }
 
     public void ReturnButton(){
@@ -25,12 +24,14 @@ public class SettingMenu : UIManager
 
     public IEnumerator SettingAnimOpen(){
         settingAnimation.Play("settingsAnimation");
-        settingPanel.transform.DOMoveX(ResolutionWidth / 2, 0.8f);
+        panelRectTransform.DOAnchorMax(new Vector2(_targetPosX.y, _maxPosPanel.y), 0.8f);
+        panelRectTransform.DOAnchorMin(new Vector2(_targetPosX.x, _minPosPanel.y), .8f);
         yield return null;
     }
     public IEnumerator SettingAnimClose(){
         settingAnimation.Play("settingsAnimationIN");
-        settingPanel.transform.DOMoveX(ResolutionWidth + (ResolutionWidth / 2), 0.8f);
+        panelRectTransform.DOAnchorMax(_maxPosPanel, 0.8f);
+        panelRectTransform.DOAnchorMin(_minPosPanel, 0.8f);
         yield return null;
     }
 }
