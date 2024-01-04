@@ -387,6 +387,11 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 584671104}
+    - target: {fileID: 4777225519144046931, guid: 7d61af674316f3c4e8741d03affc7094,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4862854513854889940, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1176,7 +1181,7 @@ MonoBehaviour:
   _characterPrefab: {fileID: 8972917622885251864, guid: 571bb6e8e90a4d8479319cf359e858b9,
     type: 3}
   _characterParent: {fileID: 1336399960}
-  _planetRadius: 1.2
+  _planetRadius: 12
   _spawnTime: 2
 --- !u!1001 &984726523
 PrefabInstance:
