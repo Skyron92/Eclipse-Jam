@@ -131,7 +131,9 @@ public class CiviliansAI : MonoBehaviour
                     break;
                 case state.Dead:
                     CivilsAnimation.AnimationManager(actualState, animator);
-                    if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 2.0f)
+                    fireParticles.SetActive(false);
+                    fearParticles.SetActive(false);
+                    if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.5f)
                     {
                         gameObject.SetActive(false);
                     }
