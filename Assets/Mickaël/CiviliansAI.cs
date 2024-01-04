@@ -58,6 +58,7 @@ public class CiviliansAI : MonoBehaviour
 
     private void OnDestroy()
     {
+        killCount++;
         m_AIList.Remove(this);
     }
 
@@ -82,8 +83,6 @@ public class CiviliansAI : MonoBehaviour
                 lifePoint -= BurningSpeed * Time.deltaTime;
                 if (lifePoint < 0)
                 {
-                    killCount++;
-                    isBurning = false;
                     actualState = state.Dead;
                 }
             }
