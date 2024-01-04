@@ -4,12 +4,12 @@ using UnityEngine;
 public class CharacterCounter : MonoBehaviour{
     public static int Count = 0;
 
-    private float _scale = 0.01f;
+    private float _scale = 0.000001f;
     [SerializeField] private float _maxScale;
     
     private void OnEnable(){
         Count++;
-        _scale = 0.01f;
+        _scale = 0.000001f;
         transform.localScale = Vector3.one * _scale;
     }
 
