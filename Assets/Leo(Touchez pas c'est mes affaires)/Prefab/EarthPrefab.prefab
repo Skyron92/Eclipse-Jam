@@ -50,7 +50,7 @@ MonoBehaviour:
     type: 3}
   mouseInputActionReference: {fileID: 6946595831616246268, guid: aef80c1ee29d404478e9942e029ca211,
     type: 3}
-  rotationSpeed: 35
+  rotationSpeed: 20
   naturalRotationSpeed: 0.5
 --- !u!33 &7220456745867085530
 MeshFilter:
