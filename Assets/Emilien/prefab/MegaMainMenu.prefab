@@ -592,10 +592,10 @@ RectTransform:
   - {fileID: 2408699034405993699}
   m_Father: {fileID: 8322593690725291566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.5, y: 0.5}
-  m_SizeDelta: {x: 1, y: -1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 2}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7238763837788505656
 CanvasRenderer:
@@ -651,8 +651,8 @@ MonoBehaviour:
   ResolutionHeight: 1080
   camera: {fileID: 0}
   _mainMenu: {fileID: 5864677140697682543}
-  creditPanel: {fileID: 625990790903465256}
   creditAnimation: {fileID: 0}
+  panelRectTransform: {fileID: 2021537559189377504}
 --- !u!1 &642157477922297472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,10 +1792,10 @@ RectTransform:
   - {fileID: 9128438465420037542}
   m_Father: {fileID: 8322593690725291566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.364, y: 0.05}
-  m_AnchorMax: {x: 0.625, y: 0.95100003}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 0, y: 2}
+  m_AnchorMin: {x: 1, y: 0.05}
+  m_AnchorMax: {x: 1.24, y: 0.95100003}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5898456804906351136
 CanvasRenderer:
@@ -1851,8 +1851,8 @@ MonoBehaviour:
   ResolutionHeight: 1080
   camera: {fileID: 0}
   _mainMenu: {fileID: 5864677140697682543}
-  settingPanel: {fileID: 2473843362504430478}
   settingAnimation: {fileID: 0}
+  panelRectTransform: {fileID: 3741504323332389193}
 --- !u!1 &2499149682779090443
 GameObject:
   m_ObjectHideFlags: 0
@@ -4206,8 +4206,8 @@ RectTransform:
   - {fileID: 8759906941646075910}
   m_Father: {fileID: 8322593690725291566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8, y: 0.02}
-  m_AnchorMax: {x: 0.98, y: 0.98}
+  m_AnchorMin: {x: 0.8, y: -0.96}
+  m_AnchorMax: {x: 0.98, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4265,8 +4265,8 @@ MonoBehaviour:
   ResolutionHeight: 1080
   camera: {fileID: 0}
   _mainMenu: {fileID: 5864677140697682543}
-  gamePanel: {fileID: 4693874083605079460}
   gameAnimation: {fileID: 0}
+  panelRectTransform: {fileID: 5780914481746423701}
 --- !u!1 &4704152035633959134
 GameObject:
   m_ObjectHideFlags: 0

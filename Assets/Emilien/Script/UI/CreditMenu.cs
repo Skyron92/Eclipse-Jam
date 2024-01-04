@@ -6,16 +6,13 @@ using DG.Tweening;
 public class CreditMenu : UIManager
 {
     public MainMenu _mainMenu;
-    public GameObject creditPanel;
     public Animator creditAnimation;
+    [SerializeField] private RectTransform panelRectTransform;
+    private Vector2 _maxPanelPosition, _minPanelPosition;
 
-    private void Awake(){
-       creditPanel.transform.DOMoveY(ResolutionHeight*3, 0);
-    }
-
-    private void Update(){
-        ResolutionHeight = _mainMenu.dropdown.resolutions[_mainMenu.dropdown.dropdownMenu.value].height;
-        ResolutionWidth = _mainMenu.dropdown.resolutions[_mainMenu.dropdown.dropdownMenu.value].width;
+    private void Awake() {
+        _maxPanelPosition = panelRectTransform.anchorMax;
+        _minPanelPosition = panelRectTransform.anchorMin;
     }
 
     public void ReturnButton(){
@@ -25,12 +22,14 @@ public class CreditMenu : UIManager
 
     public IEnumerator CreditAnimOpen(){
         creditAnimation.Play("CreditAnim");
-        creditPanel.transform.DOMoveY(ResolutionHeight/4.5f, 0.8f);
+        panelRectTransform.DOAnchorMax(Vector2.one, 0.8f);
+        panelRectTransform.DOAnchorMin(Vector2.zero, 0.8f);
         yield return null;
     }
     public IEnumerator CreditAnimClose(){
         creditAnimation.Play("CreditAnimIN");
-        creditPanel.transform.DOMoveY(ResolutionHeight, 0.8f);
+        panelRectTransform.DOAnchorMax(_maxPanelPosition, 0.8f);
+        panelRectTransform.DOAnchorMin(_minPanelPosition, 0.8f);
         yield return null;
     }
 }

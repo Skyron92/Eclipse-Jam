@@ -15,8 +15,7 @@ public class MainMenu : UIManager
     public DropDown dropdown;
     public CanvasScaler scaler;
 
-    private void Awake()
-    {
+    private void Awake() {
         scaler = GetComponent<CanvasScaler>();
     }
 
@@ -35,7 +34,7 @@ public class MainMenu : UIManager
 
     public void PlayButton(){
         StartCoroutine(MainAnimClose());
-        StartCoroutine(_gameMenu.GAmeAnimOpen());
+        StartCoroutine(_gameMenu.GameAnimOpen());
     }
 
     public void SettingButton(){
