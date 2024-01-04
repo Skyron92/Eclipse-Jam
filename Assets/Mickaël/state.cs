@@ -1,0 +1,1 @@
+﻿public enum state{    Standing,    Walking,    Burning,    Dead}
