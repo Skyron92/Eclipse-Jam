@@ -10,7 +10,7 @@ public class CreditMenu : UIManager
     public Animator creditAnimation;
 
     private void Awake(){
-        creditPanel.transform.DOMoveY(ResolutionHeight + (ResolutionHeight / 2), 0);
+       creditPanel.transform.DOMoveY(ResolutionHeight*3, 0);
     }
 
     private void Update(){
@@ -25,12 +25,12 @@ public class CreditMenu : UIManager
 
     public IEnumerator CreditAnimOpen(){
         creditAnimation.Play("CreditAnim");
-        creditPanel.transform.DOMoveY(ResolutionHeight / 2, 0.8f);
+        creditPanel.transform.DOMoveY(ResolutionHeight/4.5f, 0.8f);
         yield return null;
     }
     public IEnumerator CreditAnimClose(){
         creditAnimation.Play("CreditAnimIN");
-        creditPanel.transform.DOMoveY(ResolutionHeight + (ResolutionHeight / 2), 0.8f);
+        creditPanel.transform.DOMoveY(ResolutionHeight, 0.8f);
         yield return null;
     }
 }
