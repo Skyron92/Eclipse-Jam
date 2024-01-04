@@ -9844,7 +9844,9 @@ MonoBehaviour:
   MaximumWalkingDuration: 10
   MinimumStandingDuration: 3
   MaxLifePoints: 100
-  BurningSpeed: 50
+  BurningSpeed: 25
+  fearParticles: {fileID: 5701592457055620517}
+  fireParticles: {fileID: 6287977909756444301}
   isBurning: 0
   hasSunglasses: 0
 --- !u!114 &7934699146347125216
