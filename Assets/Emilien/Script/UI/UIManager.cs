@@ -1,9 +1,12 @@
+using Script;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public int ResolutionWidth = 1920;
-    public int ResolutionHeight = 1080;
+    public int ResolutionWidth;
+    public int ResolutionHeight;
+    public Camera camera;
 }

@@ -95,6 +95,8 @@ public class MoonManager : MonoBehaviour
         // verifie si le slide a fait un tour complet
         if (moonTimeParkour >= reloadFlash){
             moonTimeParkour = 0;
+        }
+        if (moonTimeParkour >= reloadFlash/2){
             FlashBang?.Invoke();
         }
         StartCoroutine(Fade());

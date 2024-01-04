@@ -6,22 +6,32 @@ using DG.Tweening;
 public class SettingMenu : UIManager
 {
     public MainMenu _mainMenu;
-    public GameObject settingPanel;
-    private void Awake(){
-        settingPanel.transform.DOMoveX(ResolutionWidth + (ResolutionWidth / 2), 0);
+    public Animator settingAnimation;
+
+    [SerializeField] private RectTransform panelRectTransform;
+    private Vector2 _maxPosPanel, _minPosPanel, _targetPosX;
+
+    private void Awake() {
+        _maxPosPanel = panelRectTransform.anchorMax;
+        _minPosPanel = panelRectTransform.anchorMin;
+        _targetPosX = new Vector2(0.365f, 0.625f);
     }
+
     public void ReturnButton(){
         StartCoroutine(_mainMenu.MainAnimOpen());
         StartCoroutine(SettingAnimClose());
     }
 
     public IEnumerator SettingAnimOpen(){
-        settingPanel.transform.DOMoveX(ResolutionWidth / 2, 0.8f);
+        settingAnimation.Play("settingsAnimation");
+        panelRectTransform.DOAnchorMax(new Vector2(_targetPosX.y, _maxPosPanel.y), 0.8f);
+        panelRectTransform.DOAnchorMin(new Vector2(_targetPosX.x, _minPosPanel.y), .8f);
         yield return null;
     }
-    public IEnumerator SettingAnimClose()
-    {
-        settingPanel.transform.DOMoveX(ResolutionWidth + (ResolutionWidth / 2), 0.8f);
+    public IEnumerator SettingAnimClose(){
+        settingAnimation.Play("settingsAnimationIN");
+        panelRectTransform.DOAnchorMax(_maxPosPanel, 0.8f);
+        panelRectTransform.DOAnchorMin(_minPosPanel, 0.8f);
         yield return null;
     }
 }

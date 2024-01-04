@@ -1,26 +1,39 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class GameMenu : UIManager{
 
     public MainMenu _mainMenu;
-    public GameObject gamePanel;
-    private void Awake(){
-        gamePanel.transform.DOMoveY(-ResolutionHeight, 0);
+    public Animator gameAnimation;
+
+    [SerializeField] private RectTransform panelRectTransform;
+    private Vector2 _panelMaxPosition, _panelMinPosition, _targetPositionY;
+
+    private void Awake()
+    {
+        _targetPositionY = new Vector2(0.02f, 0.98f);
+        _panelMaxPosition = panelRectTransform.anchorMax;
+        _panelMinPosition = panelRectTransform.anchorMin;
     }
+
     public void ReturnToMainMenu(){
         StartCoroutine(_mainMenu.MainAnimOpen());
         StartCoroutine(GameAnimClose());
     }
 
-    public IEnumerator GAmeAnimOpen(){
-        gamePanel.transform.DOMoveY(ResolutionHeight / 2, 0.8f);
+    public IEnumerator GameAnimOpen(){
+        gameAnimation.Play("cameraAnim");
+        panelRectTransform.DOAnchorMax(new Vector2(_panelMaxPosition.x, _targetPositionY.y), 0.8f);
+        panelRectTransform.DOAnchorMin(new Vector2(_panelMinPosition.x, _targetPositionY.x), 0.8f);
         yield return null;
     }
     public IEnumerator GameAnimClose(){
-        gamePanel.transform.DOMoveY(ResolutionHeight + (ResolutionHeight / 2), 0.8f);
+        gameAnimation.Play("cameraAnimIN");
+        panelRectTransform.DOAnchorMax(_panelMaxPosition, 0.8f);
+        panelRectTransform.DOAnchorMin(_panelMinPosition, 0.8f);
         yield return null;
     }
 }
