@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
+using Script;
 
 public class MainMenu : UIManager
 {
@@ -9,6 +11,28 @@ public class MainMenu : UIManager
     public SettingMenu _settingMenu;
     public CreditMenu _creditMenu;
     public GameMenu _gameMenu;
+
+    public DropDown dropdown;
+    public CanvasScaler scaler;
+
+    private void Awake()
+    {
+        scaler = GetComponent<CanvasScaler>();
+    }
+
+
+    private void Update()
+    {
+        scaler.referenceResolution = new Vector2(ResolutionWidth, ResolutionHeight);
+        ResolutionModifier(gameObject);
+    }
+    public void ResolutionModifier(GameObject obj){
+        ResolutionHeight = dropdown.resolutions[dropdown.dropdownMenu.value].height;
+        ResolutionWidth = dropdown.resolutions[dropdown.dropdownMenu.value].width;  
+    }
+
+
+
     public void PlayButton(){
         StartCoroutine(MainAnimClose());
         StartCoroutine(_gameMenu.GAmeAnimOpen());
