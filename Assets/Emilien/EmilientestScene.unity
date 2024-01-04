@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &144243671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2349160683392413930, guid: 7d61af674316f3c4e8741d03affc7094,
+    type: 3}
+  m_PrefabInstance: {fileID: 1951359238608687397}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &238222885 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6416469344593654509, guid: 7d61af674316f3c4e8741d03affc7094,
@@ -927,7 +939,7 @@ PrefabInstance:
     - target: {fileID: 910859817374217095, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
       propertyPath: ResolutionWidth
-      value: 0
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 910859817374217095, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
@@ -937,7 +949,7 @@ PrefabInstance:
     - target: {fileID: 910859817374217095, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
       propertyPath: ResolutionHeight
-      value: 0
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 1058149701517350819, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
@@ -989,6 +1001,41 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 1080
       objectReference: {fileID: 0}
+    - target: {fileID: 2661773354394321510, guid: 7d61af674316f3c4e8741d03affc7094,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661773354394321510, guid: 7d61af674316f3c4e8741d03affc7094,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661773354394321510, guid: 7d61af674316f3c4e8741d03affc7094,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121838109897582925, guid: 7d61af674316f3c4e8741d03affc7094,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121838109897582925, guid: 7d61af674316f3c4e8741d03affc7094,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121838109897582925, guid: 7d61af674316f3c4e8741d03affc7094,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125456970289657481, guid: 7d61af674316f3c4e8741d03affc7094,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3335100358287404646, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -998,6 +1045,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945105179582691298, guid: 7d61af674316f3c4e8741d03affc7094,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3947748453184156580, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
@@ -1012,12 +1064,12 @@ PrefabInstance:
     - target: {fileID: 3947748453184156580, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
       propertyPath: ResolutionWidth
-      value: 0
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 3947748453184156580, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
       propertyPath: ResolutionHeight
-      value: 0
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 3956106857287160463, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
@@ -1174,6 +1226,11 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1770437621}
+    - target: {fileID: 5864677140697682543, guid: 7d61af674316f3c4e8741d03affc7094,
+        type: 3}
+      propertyPath: scaler
+      value: 
+      objectReference: {fileID: 144243671}
     - target: {fileID: 5864677140697682543, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
       propertyPath: dropdown
@@ -1492,12 +1549,12 @@ PrefabInstance:
     - target: {fileID: 9081007275059192154, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
       propertyPath: ResolutionWidth
-      value: 0
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 9081007275059192154, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
       propertyPath: ResolutionHeight
-      value: 0
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 9081007275059192154, guid: 7d61af674316f3c4e8741d03affc7094,
         type: 3}
