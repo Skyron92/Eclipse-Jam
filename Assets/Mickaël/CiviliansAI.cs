@@ -14,6 +14,7 @@ public class CiviliansAI : MonoBehaviour
     [SerializeField] private Animator animator;
 
     public static List<CiviliansAI> m_AIList = new List<CiviliansAI>();
+    public static int killCount;
 
     private static bool done;
     private static GameObject World;
@@ -81,6 +82,8 @@ public class CiviliansAI : MonoBehaviour
                 lifePoint -= BurningSpeed * Time.deltaTime;
                 if (lifePoint < 0)
                 {
+                    killCount++;
+                    isBurning = false;
                     actualState = state.Dead;
                 }
             }
