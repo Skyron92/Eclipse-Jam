@@ -1,7 +1,5 @@
 using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class GameMenu : UIManager{
@@ -12,8 +10,7 @@ public class GameMenu : UIManager{
     [SerializeField] private RectTransform panelRectTransform;
     private Vector2 _panelMaxPosition, _panelMinPosition, _targetPositionY;
 
-    private void Awake()
-    {
+    private void Awake() {
         _targetPositionY = new Vector2(0.02f, 0.98f);
         _panelMaxPosition = panelRectTransform.anchorMax;
         _panelMinPosition = panelRectTransform.anchorMin;

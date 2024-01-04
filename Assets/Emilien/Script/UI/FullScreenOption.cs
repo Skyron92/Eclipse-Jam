@@ -6,7 +6,7 @@ public class FullScreenOption : MonoBehaviour
 {
     
     void Start(){
-        Screen.fullScreen = !Screen.fullScreen; 
+        Screen.fullScreen = true; 
     }
 
     public void FullScreenClick(){
