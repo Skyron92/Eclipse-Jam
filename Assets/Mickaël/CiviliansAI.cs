@@ -83,6 +83,7 @@ public class CiviliansAI : MonoBehaviour
                 if (lifePoint < 0)
                 {
                     killCount++;
+                    isBurning = false;
                     actualState = state.Dead;
                 }
             }
