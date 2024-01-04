@@ -52,7 +52,6 @@ public class CiviliansAI : MonoBehaviour
             if (item.gameObject.activeSelf != true)
             {
                 Destroy(item.gameObject);
-                killCount++;
             }
         }
     }
@@ -83,6 +82,7 @@ public class CiviliansAI : MonoBehaviour
                 lifePoint -= BurningSpeed * Time.deltaTime;
                 if (lifePoint < 0)
                 {
+                    killCount++;
                     actualState = state.Dead;
                 }
             }
