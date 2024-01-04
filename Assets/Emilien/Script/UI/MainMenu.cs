@@ -29,7 +29,6 @@ public class MainMenu : UIManager
     }
     
     private void Update() {
-        scaler.referenceResolution = new Vector2(ResolutionWidth, ResolutionHeight);
         ResolutionModifier(gameObject);
     }
     public void ResolutionModifier(GameObject obj){
