@@ -58,7 +58,7 @@ public class CiviliansAI : MonoBehaviour
 
     private void OnDestroy()
     {
-        killCount++;
+     
         m_AIList.Remove(this);
     }
 
@@ -137,6 +137,7 @@ public class CiviliansAI : MonoBehaviour
                     fearParticles.SetActive(false);
                     if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.5f)
                     {
+                        killCount++;
                         gameObject.SetActive(false);
                     }
                     break;
