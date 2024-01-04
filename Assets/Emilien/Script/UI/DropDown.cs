@@ -8,7 +8,7 @@ using UnityEngine.UI;
 {
     public class DropDown : MonoBehaviour
     {
-        Resolution[] resolutions;
+        public Resolution[] resolutions;
         public TMP_Dropdown dropdownMenu;
 
         void Awake()
@@ -33,6 +33,9 @@ using UnityEngine.UI;
         {
             return res.width + " x " + res.height;
         }
+
+        
+
     }
 
 }
