@@ -9,6 +9,7 @@ public enum MoonSpeed { paused, veryLow, low, normal, fast, veryFast }
 public class MoonManager : MonoBehaviour
 {
     public static event Action FlashBang;
+    public static bool isFlashing = false;
 
     [SerializeField] private InputActionReference triggerInputActionReference;
     private InputAction TriggerInputActon => triggerInputActionReference.action;
@@ -98,7 +99,9 @@ public class MoonManager : MonoBehaviour
         }
         if (moonTimeParkour >= reloadFlash/2){
             FlashBang?.Invoke();
+            isFlashing = true;
         }
+        if (moonTimeParkour < 190) isFlashing = false;
         StartCoroutine(Fade());
     }
 
