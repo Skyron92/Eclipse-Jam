@@ -1945,7 +1945,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 120}
+  m_SizeDelta: {x: 0, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2142231489847697335
 CanvasRenderer:
@@ -3480,7 +3480,6 @@ GameObject:
   - component: {fileID: 4989790497993725991}
   - component: {fileID: 2928768184216926571}
   - component: {fileID: 5681022908375199201}
-  - component: {fileID: 4777225519144046931}
   m_Layer: 5
   m_Name: MainButton
   m_TagString: Untagged
@@ -3576,31 +3575,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4777225519144046931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3945105179582691298}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21044b4324388f4428c601f57aa2bc32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ResolutionWidth: 1920
-  ResolutionHeight: 1080
-  camera: {fileID: 0}
-  button:
-  - {fileID: 6823904713109895154}
-  - {fileID: 2631556828533642576}
-  - {fileID: 7478696179700707778}
-  - {fileID: 5014793590144427759}
-  _settingMenu: {fileID: 9081007275059192154}
-  _creditMenu: {fileID: 910859817374217095}
-  _gameMenu: {fileID: 3947748453184156580}
-  logoRectTransform: {fileID: 5273247378946439439}
-  dropdown: {fileID: 6416469344593654509}
 --- !u!1 &3989772874852755747
 GameObject:
   m_ObjectHideFlags: 0
